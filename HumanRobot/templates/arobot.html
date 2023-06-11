@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VTPAI08_2021</title>
+	<link rel="stylesheet" href="../static/w3.css" type="text/css">
+</head>
+<body style="background-image: url('../static/bg.jpg')">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+  <h3 class="w3-bar-item">Menu</h3>
+  <a href="/ahome" class="w3-bar-item w3-button">Home</a>
+  <a href="/addmanager" class="w3-bar-item w3-button">Add Manage</a>
+  <a href="/amanager" class="w3-bar-item w3-button">Manager Details</a>
+  <a href="/addrobot" class="w3-bar-item w3-button">Add Robot</a>
+  <a href="/arobot" class="w3-bar-item w3-button">Robot Details</a>
+  <a href="/aprod" class="w3-bar-item w3-button">Production</a>
+  <a href="/" class="w3-bar-item w3-button">Logout</a>
+</div>
+<div style="margin-left:25%">
+<div class="w3-container w3-center w3-red  w3-xxlarge w3-serif">
+<h1 style="text-align:'center'">Human Robot Collaboration</h1>
+</div>
+<br><br><br>
+<div class="w3-container w3-margin-top w3-blue" style="margin-top:25%;">
+<h2>Robot Details</h2>
+<table class="w3-table w3-striped w3-bordered w3-hoverable w3-center">
+<thead>
+<tr class="w3-teal">
+<th>Name</th><th>Email</th><th>Department</th><th>Manager</th>
+</tr>
+</thead>
+{% for x in result %}
+<tbody>
+<tr>
+<td>{{ x [0] }}</td>
+<td>{{ x [1] }}</td>
+<td>{{ x [3] }}</td>
+<td>{{ x [4] }}</td>
+</tr></tbody>
+{% endfor %}
+</table>
+</div>
+</div>
+</body>
+</html>

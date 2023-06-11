@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VTPAI08_2021</title>
+	<link rel="stylesheet" href="../static/w3.css" type="text/css">
+</head>
+<body style="background-image: url('../static/bg.jpg')">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+  <h3 class="w3-bar-item">Menu</h3>
+  <a href="/mhome" class="w3-bar-item w3-button">Home</a>
+  <a href="/mrobot" class="w3-bar-item w3-button">Robot Details</a>
+  <a href="/mprod" class="w3-bar-item w3-button">Products</a>
+  <a href="/mpart" class="w3-bar-item w3-button">Sent Parts</a>
+  <a href="/mrev" class="w3-bar-item w3-button">Review Product</a>
+  <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+</div>
+<div style="margin-left:25%">
+<div class="w3-container w3-center w3-red  w3-xxlarge w3-serif">
+<h1 style="text-align:'center'">Human Robot Collaboration</h1>
+</div>
+<br><br><br>
+<div class="w3-container w3-margin-top w3-blue" style="margin-top:25%">
+<h2>Send Part Details</h2>
+{% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <p>{{ message }}</p>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %} 
+<form class="w3-container" action="/send" method="POST">
+  <p>
+  <label>Material</label>
+  <input class="w3-input w3-border w3-round-large" type="text" name='mat'></p>
+  <p>
+  <label>Measurements</label>
+  <input class="w3-input w3-border w3-round-large" type="text" name='msm'></p>
+  <p>
+  <label>Specifications</label>
+  <input class="w3-input w3-border w3-round-large" type="text" name='spc'></p>
+  <p>
+  <label>Part</label>
+  <input class="w3-input w3-border w3-round-large" type="text" name='part'></p>
+  <p>
+  <label>Robot</label>
+  <select class="w3-select w3-border w3-round-large" name='rid'>
+  <option value="">---Select---</option>
+  {% for x in result %}
+  <option value={{ x[0] }}>{{ x[0] }}</option>
+  {% endfor %}
+  </select></p>
+  <p>
+  <button class="w3-btn w3-teal">Send</button></p>
+</form>
+</div>
+</div>
+</body>
+</html>

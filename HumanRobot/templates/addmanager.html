@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VTPAI08_2021</title>
+	<link rel="stylesheet" href="../static/w3.css" type="text/css">
+</head>
+<body style="background-image: url('../static/bg.jpg')">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+  <h3 class="w3-bar-item">Menu</h3>
+  <a href="/ahome" class="w3-bar-item w3-button">Home</a>
+  <a href="/addmanager" class="w3-bar-item w3-button">Add Manage</a>
+  <a href="/amanager" class="w3-bar-item w3-button">Manager Details</a>
+  <a href="/addrobot" class="w3-bar-item w3-button">Add Robot</a>
+  <a href="/arobot" class="w3-bar-item w3-button">Robot Details</a>
+  <a href="/aprod" class="w3-bar-item w3-button">Production</a>
+  <a href="/" class="w3-bar-item w3-button">Logout</a>
+</div>
+<div style="margin-left:25%">
+<div class="w3-container w3-center w3-red  w3-xxlarge w3-serif">
+<h1 style="text-align:'center'">Human Robot Collaboration</h1>
+</div>
+<br><br><br>
+<div class="w3-container w3-margin-top w3-blue" style="margin-top:25%;">
+ {% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <p>{{ message }}</p>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}  
+<h2>Add Manager</h2>
+<form class="w3-container"  action="/addman" method="POST">
+  <p>
+  <label>Name</label>
+  <input class="w3-input w3-border w3-round-large" type="text" name='name'></p>
+  <p>
+  <label>Email</label>
+  <input class="w3-input w3-border w3-round-large" type="text" name='uid'></p>
+  <p>
+  <label>Password</label>
+  <input class="w3-input w3-border w3-round-large" type="password" name='pwd'></p>
+  <p>
+  <label>Mobile</label>
+  <input class="w3-input w3-border w3-round-large" type="text" name='mob'></p>
+  <p>
+  <label>Department</label>
+  <input class="w3-input w3-border w3-round-large" type="text" name='dep'></p>
+  <p>
+  <label>Location</label>
+  <input class="w3-input w3-border w3-round-large" type="text" name='loc'></p>
+  <p>
+  <button class="w3-btn w3-teal">Add Manager</button></p>
+</form>
+</div>
+</div>
+</body>
+</html>
